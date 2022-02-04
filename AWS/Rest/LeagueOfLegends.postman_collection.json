@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "46acc89d-af5d-4a87-bec5-a56c01b0ad04",
+		"name": "LeagueOfLegends",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ChampionRotations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://br1.api.riotgames.com/lol/platform/v3/champion-rotations?api_key=RGAPI-4ae25945-1b0f-435d-b9d1-06056a02853a",
+					"protocol": "https",
+					"host": [
+						"br1",
+						"api",
+						"riotgames",
+						"com"
+					],
+					"path": [
+						"lol",
+						"platform",
+						"v3",
+						"champion-rotations"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "RGAPI-4ae25945-1b0f-435d-b9d1-06056a02853a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Rank",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://americas.api.riotgames.com/lor/ranked/v1/leaderboards?api_key=RGAPI-4ae25945-1b0f-435d-b9d1-06056a02853a",
+					"protocol": "https",
+					"host": [
+						"americas",
+						"api",
+						"riotgames",
+						"com"
+					],
+					"path": [
+						"lor",
+						"ranked",
+						"v1",
+						"leaderboards"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "RGAPI-4ae25945-1b0f-435d-b9d1-06056a02853a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://br.api.riotgames.com/val/content/v1/contents?locale=pt-BR&api_key=RGAPI-4ae25945-1b0f-435d-b9d1-06056a02853a",
+					"protocol": "https",
+					"host": [
+						"br",
+						"api",
+						"riotgames",
+						"com"
+					],
+					"path": [
+						"val",
+						"content",
+						"v1",
+						"contents"
+					],
+					"query": [
+						{
+							"key": "locale",
+							"value": "pt-BR"
+						},
+						{
+							"key": "api_key",
+							"value": "RGAPI-4ae25945-1b0f-435d-b9d1-06056a02853a"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "fff4dc01-73be-4f53-8551-88f8e7ae5a37",
+		"name": "TheMovieDb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Movies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.themoviedb.org/3/movie/upcoming?api_key=1f54bd990f1cdfb230adb312546d765d&language=pt-BR&page=2",
+					"protocol": "https",
+					"host": [
+						"api",
+						"themoviedb",
+						"org"
+					],
+					"path": [
+						"3",
+						"movie",
+						"upcoming"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "1f54bd990f1cdfb230adb312546d765d"
+						},
+						{
+							"key": "language",
+							"value": "pt-BR"
+						},
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.themoviedb.org/3/movie/585245?api_key=1f54bd990f1cdfb230adb312546d765d&language=pt-BR",
+					"protocol": "https",
+					"host": [
+						"api",
+						"themoviedb",
+						"org"
+					],
+					"path": [
+						"3",
+						"movie",
+						"585245"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "1f54bd990f1cdfb230adb312546d765d"
+						},
+						{
+							"key": "language",
+							"value": "pt-BR"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Genres",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.themoviedb.org/3/genre/movie/list?api_key=1f54bd990f1cdfb230adb312546d765d&language=pt-BR",
+					"protocol": "https",
+					"host": [
+						"api",
+						"themoviedb",
+						"org"
+					],
+					"path": [
+						"3",
+						"genre",
+						"movie",
+						"list"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "1f54bd990f1cdfb230adb312546d765d"
+						},
+						{
+							"key": "language",
+							"value": "pt-BR"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upcoming",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.themoviedb.org/3/movie/upcoming?api_key=1f54bd990f1cdfb230adb312546d765d&language=pt-BR",
+					"protocol": "https",
+					"host": [
+						"api",
+						"themoviedb",
+						"org"
+					],
+					"path": [
+						"3",
+						"movie",
+						"upcoming"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "1f54bd990f1cdfb230adb312546d765d"
+						},
+						{
+							"key": "language",
+							"value": "pt-BR"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

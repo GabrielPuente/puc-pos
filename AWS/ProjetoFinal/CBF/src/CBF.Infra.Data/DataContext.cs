@@ -14,6 +14,8 @@ namespace CBF.Infra.Data
 
         public DbSet<Transfer> Transfers { get; set; }
 
+        public DbSet<User> Users{ get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);

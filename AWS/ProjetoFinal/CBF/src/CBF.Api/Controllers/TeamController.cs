@@ -1,6 +1,7 @@
 ﻿using CBF.Application.Commands.Team;
 using CBF.Application.Queries.Interfaces;
 using CBF.Application.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace CBF.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class TeamController : ControllerBase
     {
         private readonly ITeamService _teamService;

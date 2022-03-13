@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 
 namespace CBF.Api
 {
@@ -25,18 +24,17 @@ namespace CBF.Api
         {
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Connection")));
 
+            services.AddCors();
             services.AddControllers();
+
             services.AddMediatR(typeof(ApplicationModule).Assembly);
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CBF.Api", Version = "v1" });
-            });
-
-            services.AddApplicationServices()
+            services.AddAuthenticationServices(Configuration)
+                    .AddApplicationServices()
                     .AddApplicationQueries()
                     .AddRepositories()
-                    .AddInfraData(Configuration);
+                    .AddInfraData(Configuration)
+                    .AddSwaggerServices();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -44,14 +42,19 @@ namespace CBF.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CBF.Api v1"));
+                app.AddSwaggerApplications();
             }
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

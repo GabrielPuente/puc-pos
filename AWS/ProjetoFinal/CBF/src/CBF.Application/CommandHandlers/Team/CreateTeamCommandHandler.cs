@@ -1,6 +1,5 @@
 ﻿using CBF.Application.Commands;
 using CBF.Application.Commands.Team;
-using CBF.Domain;
 using CBF.Infra.Data.Interfaces;
 using MediatR;
 using System.Linq;

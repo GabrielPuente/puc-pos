@@ -52,7 +52,7 @@ namespace CBF.Domain
         private void CheckDomainIsValid()
         {
             AddNotifications(new Contract<Team>()
-                  .IsCpf(Name, "Name", "Campo nome é obrigatorio")
+                  .IsNotNullOrEmpty(Name, "Name", "Campo nome é obrigatorio")
                   .IsNotNullOrEmpty(Locality, "Locality", "Campo localidade é obrigatorio"));
         }
     }

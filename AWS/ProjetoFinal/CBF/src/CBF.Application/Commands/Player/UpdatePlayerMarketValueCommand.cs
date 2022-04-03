@@ -1,5 +1,4 @@
-﻿using CBF.Domain;
-using Flunt.Validations;
+﻿using Flunt.Validations;
 using MediatR;
 using System;
 

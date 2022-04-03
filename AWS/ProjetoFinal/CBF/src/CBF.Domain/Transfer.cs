@@ -5,7 +5,7 @@ using System;
 namespace CBF.Domain
 {
     
-    public class Transfer : Entity
+    public class Transfer : Entity, IAggregateRoot
     {
         public Team TeamOrigin { get; private set; }
 

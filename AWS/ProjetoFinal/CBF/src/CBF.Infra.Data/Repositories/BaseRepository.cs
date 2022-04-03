@@ -70,9 +70,9 @@ namespace CBF.Infra.Data.Repositories
             return Task.CompletedTask;
         }
 
-        public Task SaveChanges()
+        public async Task SaveChanges()
         {
-            return _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
         }
     }
 }

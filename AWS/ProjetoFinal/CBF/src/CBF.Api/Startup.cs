@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Rebus.Config;
 
 namespace CBF.Api
 {
@@ -35,6 +36,8 @@ namespace CBF.Api
                     .AddRepositories()
                     .AddInfraData(Configuration)
                     .AddSwaggerServices();
+
+            services.AddRebus(Configuration);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -61,6 +64,8 @@ namespace CBF.Api
             {
                 endpoints.MapControllers();
             });
+
+            app.ApplicationServices.UseRebus(bus => bus.SubscribeToEvents());
         }
     }
 }

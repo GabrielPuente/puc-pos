@@ -21,14 +21,9 @@ namespace CBF.Infra.Data.Auditing
             entry.Property(Columns.DELETED_DATE).CurrentValue = GetValueOrDefaultDate(date);
         }
 
-        private DateTime GetValueOrDefaultDate(DateTime? date)
+        private static DateTime GetValueOrDefaultDate(DateTime? date)
         {
-            if (!date.HasValue)
-            {
-                date = DateTime.Now;
-            }
-
-            return date.Value;
+            return date ?? DateTime.UtcNow;
         }
     }
 }

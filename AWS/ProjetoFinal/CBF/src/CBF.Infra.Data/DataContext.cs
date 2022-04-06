@@ -14,7 +14,11 @@ namespace CBF.Infra.Data
 
         public DbSet<Transfer> Transfers { get; set; }
 
-        public DbSet<User> Users{ get; set; }
+        public DbSet<User> Users { get; set; }
+
+        public DbSet<Tournament> Tournaments { get; set; }
+
+        public DbSet<Match> Matches { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

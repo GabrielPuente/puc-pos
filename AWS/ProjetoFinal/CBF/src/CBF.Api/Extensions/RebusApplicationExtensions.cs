@@ -10,7 +10,6 @@ namespace CBF.Api.Extensions
 {
     public static class RebusApplicationExtensions
     {
-
         public static IServiceCollection AddRebus(this IServiceCollection services, IConfiguration configuration)
         {
             services.AutoRegisterHandlersFromAssembly(typeof(ApplicationModule).Assembly);

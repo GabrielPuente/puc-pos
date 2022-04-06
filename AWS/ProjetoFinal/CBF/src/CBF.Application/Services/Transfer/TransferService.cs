@@ -5,7 +5,7 @@ using MediatR;
 using System.Threading.Tasks;
 using DomainTransfer = CBF.Domain.Transfer;
 
-namespace CBF.Application.Services.TransferService
+namespace CBF.Application.Services.Transfer
 {
     public class TransferService : ITransferService
     {

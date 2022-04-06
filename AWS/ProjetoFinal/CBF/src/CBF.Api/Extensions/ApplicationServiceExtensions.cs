@@ -1,13 +1,13 @@
-﻿using CBF.Api.AuthenticationService;
-using CBF.Application.Queries.Interfaces;
+﻿using CBF.Application.Queries.Interfaces;
 using CBF.Application.Queries.Player;
 using CBF.Application.Queries.Team;
 using CBF.Application.Queries.Transfer;
 using CBF.Application.Services.Interfaces;
-using CBF.Application.Services.Password;
+using CBF.Application.Services.Match;
 using CBF.Application.Services.Player;
 using CBF.Application.Services.Team;
-using CBF.Application.Services.TransferService;
+using CBF.Application.Services.Tournament;
+using CBF.Application.Services.Transfer;
 using CBF.Application.Services.User;
 using CBF.Infra.Data.Auditing;
 using CBF.Infra.Data.Interfaces;
@@ -27,7 +27,10 @@ namespace CBF.Api.Extensions
             services.AddScoped<ITeamService, TeamService>()
                     .AddScoped<ITransferService, TransferService>()
                     .AddScoped<IPlayerService, PlayerService>()
-                    .AddScoped<IUserService, UserService>();
+                    .AddScoped<IUserService, UserService>()
+                    .AddScoped<ITournamentService, TournamentService>()
+                    .AddScoped<IMatchService, MatchService>();
+
 
             return services;
         }
@@ -46,7 +49,9 @@ namespace CBF.Api.Extensions
             services.AddScoped<ITeamRepository, TeamRepository>()
                     .AddScoped<ITransferRepository, TransferRepository>()
                     .AddScoped<IPlayerRepository, PlayerRepository>()
-                    .AddScoped<IUserRepository, UserRepository>();
+                    .AddScoped<IUserRepository, UserRepository>()
+                    .AddScoped<ITournamentRepository, TournamentRepository>()
+                    .AddScoped<IMatchRepository, MatchRepository>();
 
             return services;
         }

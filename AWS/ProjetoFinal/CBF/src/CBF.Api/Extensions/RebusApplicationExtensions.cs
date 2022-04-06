@@ -1,4 +1,5 @@
 ﻿using CBF.Application;
+using CBF.Application.InternalEvent;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Rebus.Bus;
@@ -32,6 +33,7 @@ namespace CBF.Api.Extensions
         {
             Task.WaitAll(new Task[]
             {
+                bus.Subscribe<CreateEventInternalEvent>()
             });
 
             return bus;

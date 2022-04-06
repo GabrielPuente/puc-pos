@@ -7,5 +7,7 @@ namespace CBF.Application.Services.Interfaces
     public interface ITournamentService
     {
         Task<CommandResponse<Domain.Tournament>> CreateTournament(CreateTournamentCommand command);
+
+        Task<CommandResponse<Domain.Match>> AddMatch(AddMatchCommand command);
     }
 }

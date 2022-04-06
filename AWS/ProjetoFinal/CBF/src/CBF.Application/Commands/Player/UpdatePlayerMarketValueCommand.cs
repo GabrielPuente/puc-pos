@@ -6,6 +6,7 @@ namespace CBF.Application.Commands.Player
 {
     public class UpdatePlayerMarketValueCommand : Command, IRequest<CommandResponse<Domain.Player>>
     {
+        [System.Text.Json.Serialization.JsonIgnore]
         public Guid Id { get; set; }
 
         public decimal MarketValue { get; set; }

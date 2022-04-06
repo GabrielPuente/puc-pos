@@ -28,5 +28,19 @@ namespace CBF.Application.Services.Tournament
 
             return new CommandResponse<Domain.Tournament>(result.Data, result.Notifications);
         }
+
+        public async Task<CommandResponse<Domain.Match>> AddMatch(AddMatchCommand command)
+        {
+            command.Validate();
+
+            if (!command.IsValid)
+            {
+                return new CommandResponse<Domain.Match>(null, command.Notifications);
+            }
+
+            var result = await _mediator.Send(command);
+
+            return new CommandResponse<Domain.Match>(result.Data, result.Notifications);
+        }
     }
 }

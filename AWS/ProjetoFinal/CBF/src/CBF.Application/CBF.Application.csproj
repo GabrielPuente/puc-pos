@@ -17,9 +17,4 @@
     <ProjectReference Include="..\CBF.Infra.Data\CBF.Infra.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="InternalEventHandler\" />
-    <Folder Include="InternalEvent\" />
-  </ItemGroup>
-
 </Project>

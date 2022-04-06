@@ -3,7 +3,6 @@ using CBF.Application.Queries.Player;
 using CBF.Application.Queries.Team;
 using CBF.Application.Queries.Transfer;
 using CBF.Application.Services.Interfaces;
-using CBF.Application.Services.Match;
 using CBF.Application.Services.Player;
 using CBF.Application.Services.Team;
 using CBF.Application.Services.Tournament;
@@ -28,8 +27,7 @@ namespace CBF.Api.Extensions
                     .AddScoped<ITransferService, TransferService>()
                     .AddScoped<IPlayerService, PlayerService>()
                     .AddScoped<IUserService, UserService>()
-                    .AddScoped<ITournamentService, TournamentService>()
-                    .AddScoped<IMatchService, MatchService>();
+                    .AddScoped<ITournamentService, TournamentService>();
 
 
             return services;
@@ -50,8 +48,7 @@ namespace CBF.Api.Extensions
                     .AddScoped<ITransferRepository, TransferRepository>()
                     .AddScoped<IPlayerRepository, PlayerRepository>()
                     .AddScoped<IUserRepository, UserRepository>()
-                    .AddScoped<ITournamentRepository, TournamentRepository>()
-                    .AddScoped<IMatchRepository, MatchRepository>();
+                    .AddScoped<ITournamentRepository, TournamentRepository>();
 
             return services;
         }

@@ -7,6 +7,7 @@ namespace CBF.Application.Commands.Team
 {
     public class AddPlayersInTeamCommand : Command, IRequest<CommandResponse<Domain.Team>>
     {
+        [System.Text.Json.Serialization.JsonIgnore]
         public Guid Id { get; set; }
 
         public IEnumerable<PlayerCommand> Players { get; set; }

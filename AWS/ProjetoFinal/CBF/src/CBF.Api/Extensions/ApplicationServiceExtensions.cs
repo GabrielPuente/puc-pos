@@ -1,6 +1,7 @@
 ﻿using CBF.Application.Queries.Interfaces;
 using CBF.Application.Queries.Player;
 using CBF.Application.Queries.Team;
+using CBF.Application.Queries.Tournament;
 using CBF.Application.Queries.Transfer;
 using CBF.Application.Services.Interfaces;
 using CBF.Application.Services.Player;
@@ -37,8 +38,9 @@ namespace CBF.Api.Extensions
         {
             services.AddScoped<ITeamQueries, TeamQueries>()
                     .AddScoped<IPlayerQueries, PlayerQueries>()
-                    .AddScoped<ITransferQueries, TransferQueries>();
-
+                    .AddScoped<ITransferQueries, TransferQueries>()
+                    .AddScoped<ITournamentQueries, TournamentQueries>();
+            
             return services;
         }
 

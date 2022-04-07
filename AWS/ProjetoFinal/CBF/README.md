@@ -17,3 +17,7 @@ Lib SqlKata + Dapper para fazer as queries e trazendo numa viewmodel
 Autenticacao e autorizacao utilziando JWT Bearer Token e identity Claims
 
 RabbitMQ para eventos de acontecimentos em partidas. Padrao (Pub/Sub)
+
+
+Role no cadastro de usuario se remete a autorizacao na api, tendo dois tipo "Player" e "Coach". 
+Onde "Player" pode somente fazer os Get da api, quando todos os Post e Put só podem ser realizados pelo usuario cujo role é "Coach"

@@ -35,8 +35,9 @@ namespace CBF.Api.Controllers
             var response = await _teamQueries.GetById(id);
             return Ok(response);
         }
-
+            
         [HttpPost]
+        [Authorize(Roles = "Coach")]
         public async Task<IActionResult> Post(CreateTeamCommand command)
         {
             var response = await _teamService.CreateTeam(command);
@@ -49,6 +50,7 @@ namespace CBF.Api.Controllers
         }
 
         [HttpPut("{id:guid}/Players")]
+        [Authorize(Roles = "Coach")]
         public async Task<IActionResult> PostPlayers(Guid id, AddPlayersInTeamCommand command)
         {
             var response = await _teamService.AddPlayersTeam(id, command);

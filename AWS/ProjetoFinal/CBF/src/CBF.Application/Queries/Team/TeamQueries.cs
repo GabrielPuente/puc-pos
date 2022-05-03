@@ -38,7 +38,7 @@ namespace CBF.Application.Queries.Team
                             ");
 
             query.FromRaw(@"Team t
-                            join Player p
+                            left join Player p
                             on t.Id = p.TeamId");
             query.WhereFalse("IsDeleted");
 
@@ -59,7 +59,7 @@ namespace CBF.Application.Queries.Team
 
                 if (!teamResponse.Any(x => x.Id == team.Id))
                 {
-                    if (team.Id == player.TeamId && !team.Players.Any(x => x.TeamId == team.Id))
+                    if (team.Id == player?.TeamId && !team.Players.Any(x => x.TeamId == team.Id))
                     {
                         team.Players.Add(player);
                     }
@@ -96,7 +96,7 @@ namespace CBF.Application.Queries.Team
                             ");
 
             query.FromRaw(@"Team t
-                            join Player p
+                            left join Player p
                             on t.Id = p.TeamId");
             query.Where("t.Id", id);
             query.WhereFalse("IsDeleted");

@@ -27,6 +27,7 @@ namespace CBF.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Coach")]
         public async Task<IActionResult> Post(CreateTournamentCommand command)
         {
             var response = await _service.CreateTournament(command);
@@ -39,6 +40,7 @@ namespace CBF.Api.Controllers
         }
 
         [HttpPost("{id:guid}/Match")]
+        [Authorize(Roles = "Coach")]
         public async Task<IActionResult> Post(Guid id, AddMatchCommand command)
         {
             command.TournamentId = id;
@@ -52,7 +54,7 @@ namespace CBF.Api.Controllers
         }
 
         [HttpPost("{id:guid}/Match/{matchId:guid}/event")]
-        [AllowAnonymous]
+        [Authorize(Roles = "Coach")]
         public async Task<IActionResult> PostEvent(Guid id, Guid matchId, [FromBody] string message)
         {
             var evt = new CreateEventInternalEvent { TournamentId = id, MatchId = matchId, Message = message };

@@ -58,16 +58,6 @@ namespace CBF.Api.Controllers
             return Ok(response);
         }
 
-        [HttpGet]
-        [Route("player")]
-        [AllowAnonymous]
-        public string Employee() => "Player " + User.FindFirstValue(ClaimTypes.Email);
-
-        [HttpGet]
-        [Route("coach")]
-        [Authorize(Roles = "Coach")]
-        public string Manager() => "Coach " + User.FindFirstValue(ClaimTypes.Role);
-
         [HttpGet("Logar")]
         public async Task<IActionResult> Logar()
         {

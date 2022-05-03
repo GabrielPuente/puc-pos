@@ -37,6 +37,7 @@ namespace CBF.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Coach")]
         public async Task<IActionResult> Post(CreateTransferCommand command)
         {
             var response = await _transferService.CreateTransfer(command);

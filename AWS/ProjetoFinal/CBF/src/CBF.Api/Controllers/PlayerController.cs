@@ -23,6 +23,7 @@ namespace CBF.Api.Controllers
         }
 
         [HttpPut("{id:guid}")]
+        [Authorize(Roles = "Coach")]
         public async Task<IActionResult> Put(Guid id, UpdatePlayerMarketValueCommand command)
         {
             var response = await _service.UpdatePlayerMarketValue(id, command);

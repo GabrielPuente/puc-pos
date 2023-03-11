@@ -61,7 +61,7 @@ namespace CBF.Api.Controllers
         [HttpGet("Logar")]
         public async Task<IActionResult> Logar()
         {
-            var response = await _userService.LoginUser(new LoginUserCommand { Email = "gapuente96@gmail.com", Password = "eng4682507895"});
+            var response = await _userService.LoginUser(new LoginUserCommand { Email = "gapuente96@gmail.com", Password = "eng4682507895" });
 
             if (!response.Valid)
             {

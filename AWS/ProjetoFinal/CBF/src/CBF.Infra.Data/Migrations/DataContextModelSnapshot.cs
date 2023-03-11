@@ -215,7 +215,7 @@ namespace CBF.Infra.Data.Migrations
 
             modelBuilder.Entity("CBF.Domain.Tournament", b =>
                 {
-                    b.OwnsMany("CBF.Domain.Match", "Matches", b1 =>
+                    b.OwnsMany("CBF.Domain.Tournament.Matches#CBF.Domain.Match", "Matches", b1 =>
                         {
                             b1.Property<Guid>("Id")
                                 .HasColumnType("uniqueidentifier");
@@ -253,7 +253,7 @@ namespace CBF.Infra.Data.Migrations
                             b1.WithOwner()
                                 .HasForeignKey("TournamentId");
 
-                            b1.OwnsMany("CBF.Domain.Event", "Events", b2 =>
+                            b1.OwnsMany("CBF.Domain.Tournament.Matches#CBF.Domain.Match.Events#CBF.Domain.Event", "Events", b2 =>
                                 {
                                     b2.Property<Guid>("Id")
                                         .HasColumnType("uniqueidentifier");

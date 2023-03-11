@@ -21,22 +21,18 @@ namespace CBF.Api.Extensions
                 })
                 .Options(c =>
                 {
-                    var errorQueue = "Error";
-
-                    c.SimpleRetryStrategy(secondLevelRetriesEnabled: true, maxDeliveryAttempts: 2, errorQueueAddress: errorQueue);
+                    c.SimpleRetryStrategy(secondLevelRetriesEnabled: true, maxDeliveryAttempts: 2, errorQueueAddress: "CBFError");
                 }));
 
             return services;
         }
 
-        public static IBus SubscribeToEvents(this IBus bus)
+        public static void SubscribeToEvents(this IBus bus)
         {
             Task.WaitAll(new Task[]
             {
                 bus.Subscribe<CreateEventInternalEvent>()
             });
-
-            return bus;
         }
     }
 }

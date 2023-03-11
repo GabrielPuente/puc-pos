@@ -45,6 +45,11 @@ namespace CBF.Application.CommandHandlers.Tournament
 
             tournament.AddMatch(match);
 
+            if (!tournament.IsValid)
+            {
+                return Fail<Domain.Match>(tournament.Notifications);
+            }
+
             await _repository.Update(tournament);
             await _repository.SaveChanges();
 

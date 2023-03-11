@@ -5,6 +5,7 @@ using CBF.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Rebus.Bus;
+using Rebus.Messages;
 using System;
 using System.Threading.Tasks;
 
@@ -12,7 +13,6 @@ namespace CBF.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class TournamentController : ControllerBase
     {
         private readonly ITournamentService _service;
@@ -66,6 +66,8 @@ namespace CBF.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
+            var evt = new CreateEventInternalEvent { TournamentId = Guid.NewGuid(), MatchId = Guid.NewGuid(), Message = "teste fila" };
+            await _bus.Publish(evt);
             var response = await _queries.GetAll();
             return Ok(response);
         }
